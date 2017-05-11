@@ -1,0 +1,44 @@
+﻿body {
+}
+.ui-grid-container{
+overflow-y:scroll;
+overflow-x:hidden;
+height:400px;
+padding:10px;
+border:1px solid #5D7B9D;
+}
+.gridstyle{
+	border:1px solid #5D7B9D;
+	width:100%;
+}
+.gridstyle th{	
+	background:#5D7B9D;
+	color:#FFF;
+}
+.gridstyle td
+,.gridstyle th{
+	height:30px;
+	font-size:10pt;
+}
+.gridstyle td{
+	padding:0 2px;
+}
+.gridstyle tr{
+	background:#F7F6F3;
+	color:#333;	
+}
+.gridstyle tr.zebra{
+	background:#FFF;
+	color:#284775;
+}
+.gridstyle tr.checked{
+	background:#DDD;
+	color:#000;
+	font-weight:bold;
+}
+#btnSave{
+	background:#5D7B9D;
+	color:#FFF;
+	height:30px;
+	border:1px outset #49607B;
+}

@@ -1,0 +1,51 @@
+﻿body {
+	font-size:10pt;
+	margin:0;
+}
+#wrap{
+	/*width:600px;
+	margin:0 auto;*/
+}
+.gridstyle{
+	border:1px solid #5D7B9D;
+	width:100%;
+}
+.gridstyle th{	
+	background:#5D7B9D;
+	color:#FFF;
+}
+.gridstyle td
+,.gridstyle th{
+	height:30px;
+	font-size:10pt;
+}
+.gridstyle td{
+	padding:0 2px;
+}
+.gridstyle tr{
+	background:#F7F6F3;
+	color:#333;	
+}
+.gridstyle tr.zebra{
+	background:#FFF;
+	color:#284775;
+}
+.gridstyle tr.checked{
+	background:#DDD;
+	color:#000;
+}
+.gridstyle tr.current{
+	background:#FFDAAE;
+	color:#333;
+	font-weight:bold;
+}
+/**/
+.actarea{
+	text-align:center;
+	padding:8px 0;
+}
+.actarea input{
+	padding:6px;
+	border:2px outset brown;
+	background:#FFFDDF;
+}

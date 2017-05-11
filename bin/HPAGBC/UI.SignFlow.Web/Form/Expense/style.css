@@ -1,0 +1,38 @@
+﻿body {
+}
+.gridstyle{
+	border:1px solid #5D7B9D;
+	width:100%;
+}
+.gridstyle th{
+	background:#5D7B9D;
+	color:#FFF;
+}
+.gridstyle td
+,.gridstyle th{
+	height:30px;
+	font-size:10pt;
+}
+.gridstyle td{
+	padding:0 2px;
+}
+.gridstyle tr{
+	background:#F7F6F3;
+	color:#333;	
+}
+.gridstyle tr.zebra{
+	background:#FFF;
+	color:#284775;
+}
+.gridstyle tr.checked{
+	background:#DDD;
+	color:#000;
+}
+.gridstyle tr.empty td{
+	background:#DAE1E8;
+	color:#000;
+	text-align:center;
+}
+.gridstyle td.num{
+	font-family:Arial Black;	
+}

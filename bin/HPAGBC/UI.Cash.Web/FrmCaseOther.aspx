@@ -1,0 +1,715 @@
+﻿<%@ Page MaintainScrollPositionOnPostback="true" enableEventValidation="false" Language="vb" AutoEventWireup="false" CodeBehind="FrmCaseOther.aspx.vb" Inherits="UI.Case.Web.FrmCaseOther" %>
+<%@ Register TagPrefix="ComponentArt" Namespace="ComponentArt.Web.UI" Assembly="ComponentArt.Web.UI" %>
+<%@ Import Namespace="Microsoft.Security.Application" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+<title></title>
+<base target="_self" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<link href="../CSSFiles/calendarStyle.css" type="text/css" rel="stylesheet"/>
+
+<script language="javascript" src="../ScriptFiles/ShowBgtWeb/ShowBudget.js" type="text/javascript"></script>
+<script language="javascript" src="../ScriptFiles/JSPlanPicker.js" type="text/javascript"></script>
+<script language="javascript" src="../ScriptFiles/setSeleGroup.js" type="text/javascript"></script>
+<script language="javascript" src="../ScriptFiles/SearchNum.js" type="text/javascript"></script>
+<script language="javascript" src="../ScriptFiles/JSComFun.js" type="text/javascript"></script>
+
+    <script language="javascript" src="ScriptFiles/FrmCaseOther.js" type="text/javascript"></script>
+         
+<script src="<%= MyLibrary.UrlExt.GetRelativeUrl("~/ScriptFiles/jquery-1.9.1-fix.min.js")%>" type="text/javascript"></script>
+<script src="<%= MyLibrary.UrlExt.GetRelativeUrl("~/ScriptFiles/jquery-migrate/jquery-migrate-1.1.1.min.js")%>" type="text/javascript"></script>
+    
+<%-- ↓↓本頁所需檔案↓↓ --%>
+<%--<link href="<%= Page.ResolveClientUrl("~/CSSFiles/normalize/normalize.css")%>" rel="stylesheet" type="text/css" />
+<script src="<%= Page.ResolveClientUrl("~/ScriptFiles/base.js")%>" type="text/javascript"></script>--%>
+<link href="<%= Page.ResolveClientUrl("~/CSSFiles/base.css")%>" rel="stylesheet" type="text/css" />
+<script src="<%= Page.ResolveClientUrl("~/ScriptFiles/jquery.ReadOnlyTextBox/jquery.ReadOnlyTextBox.js")%>" type="text/javascript"></script>
+<%-- ↑↑本頁所需檔案↑↑ --%>
+    
+<%-- ↓↓MyLibraryJs 所需檔案↓↓ --%>
+<script src="../ScriptFiles/MyLibraryJs/MyLibraryJs.min.js" type="text/javascript"></script>
+<%--<script src="../ScriptFiles/MyLibraryJs/MyLibraryJs.js" type="text/javascript"></script>
+<script src="../ScriptFiles/MyLibraryJs/MyLibraryJs.DateTimeExt.js" type="text/javascript"></script>
+<script src="../ScriptFiles/MyLibraryJs/MyLibraryJs.EventExt.js" type="text/javascript"></script>
+<script src="../ScriptFiles/MyLibraryJs/MyLibraryJs.JqPluginExt.js" type="text/javascript"></script>
+<script src="../ScriptFiles/MyLibraryJs/MyLibraryJs.MathExt.js" type="text/javascript"></script>
+<script src="../ScriptFiles/MyLibraryJs/MyLibraryJs.StringExt.js" type="text/javascript"></script>
+<script src="../ScriptFiles/MyLibraryJs/MyLibraryJs.WindowExt.js" type="text/javascript"></script>--%>
+<%-- ↑↑MyLibraryJs 所需檔案↑↑ --%>
+<%-- ↓↓jquery.MyKendo 所需檔案↓↓ --%>
+<script src="../ScriptFiles/jquery.MyKendo/jquery.MyKendoAll.min.js" type="text/javascript"></script>
+<%--<script src="../ScriptFiles/jquery.MyKendo/jquery.MyKendoAutoComplete.js" type="text/javascript"></script>
+<script src="../ScriptFiles/jquery.MyKendo/jquery.MyKendoComboBox.js" type="text/javascript"></script>
+<script src="../ScriptFiles/jquery.MyKendo/jquery.MyKendoDatePicker.js" type="text/javascript"></script>
+<script src="../ScriptFiles/jquery.MyKendo/jquery.MyKendoMultiSelect.js" type="text/javascript"></script>
+<script src="../ScriptFiles/jquery.MyKendo/jquery.MyKendoTimePicker.js" type="text/javascript"></script>
+<script src="../ScriptFiles/jquery.MyKendo/jquery.MyKendoNumericTextBox.js" type="text/javascript"></script>--%>
+<%-- ↑↑jquery.MyKendo 所需檔案↑↑ --%>
+<%-- ↓↓KendoUI(民國) 所需檔案↓↓ --%>
+<script src="<%= MyLibrary.UrlExt.GetRelativeUrl("~/ScriptFiles/KendoUI/js/kendo.web-chinese.min.js")%>" type="text/javascript"></script>
+<script src="<%= MyLibrary.UrlExt.GetRelativeUrl("~/ScriptFiles/KendoUI/js/cultures/kendo.culture.zh-TW-chinese.min.js")%>" type="text/javascript"></script>
+<link href="<%= MyLibrary.UrlExt.GetRelativeUrl("~/ScriptFiles/KendoUI/styles/kendo.common.min.css")%>" rel="stylesheet" type="text/css" />
+<link href="<%= MyLibrary.UrlExt.GetRelativeUrl("~/ScriptFiles/KendoUI/styles/kendo.silver-themebuilder.min.css")%>" rel="stylesheet" type="text/css" />
+<%-- ↑↑KendoUI(民國) 所需檔案↑↑ --%>
+<%-- ↓↓jquery.watermark↓↓ --%>
+<script src="<%= MyLibrary.UrlExt.GetRelativeUrl("~/ScriptFiles/jquery.watermark/jquery.watermark.min.js")%>" type="text/javascript"></script>
+<link href="<%= MyLibrary.UrlExt.GetRelativeUrl("~/ScriptFiles/jquery.watermark/css.css")%>" rel="stylesheet" type="text/css" />
+<%-- ↑↑jquery.watermark↑↑ --%>
+<%-- ↓↓其他 plugin↓↓ --%>
+<script src="<%= MyLibrary.UrlExt.GetRelativeUrl("~/ScriptFiles/jquery.blockUI/jquery.blockUI-2.55.0.js")%>" type="text/javascript"></script>
+<%--<script src="<%= MyLibrary.UrlExt.GetRelativeUrl("~/ScriptFiles/jquery.maskedinput/jquery.maskedinput-1.3.1.min.js")%>" type="text/javascript"></script>--%>
+<%-- ↑↑其他 plugin↑↑ --%>
+    
+    <script src="<%= MyLibrary.UrlExt.GetRelativeUrl("~/ScriptFiles/jquery.SetLevel.js")%>" type="text/javascript"></script>
+
+<%-- ↓↓ datepicker(民國) 所需檔案(Web.config也要設定)↓↓ --%>
+<script src="../jQuery/jquery.ui.datepicker.js" type="text/javascript"></script>
+<script src="../jQuery/jquery.ui.datepicker.zh-TW.init.chinese.js" type="text/javascript"></script>
+<script src="../TM.Style/TM.ServerControl.js" type="text/javascript"></script>
+<link href="../CSSFiles/layout.ui.datepicker.css" rel="stylesheet" type="text/css" />
+<link href="../TM.Style/TM.ServerControl.css" rel="stylesheet" type="text/css" />
+<%-- ↑↑ datepicker(民國) 所需檔案↑↑ --%>
+
+    <style type="text/css">
+        .ReadOnlyStyle{
+            color: gray;
+        }
+    </style>
+
+
+<script language="javascript">
+
+    $(function () {
+
+        //2013.10.31：Add：用途別層級化顯示
+        $("[MyName='DDLdgOul']").SetLevel();
+
+        $.ReadOnlyTextBox({
+            sClassName: "ReadOnlyStyle",
+            bIsNotFocus: true
+        });
+        $.MyKendoComboBox({ autoWidth: true });
+        $.MyKendoDatePicker();
+        $.MyKendoNumericTextBox();
+
+
+        var Codekind = $("[MyName='hfCodekind']").val() || "";
+        if (Codekind != "") {
+            $("[MyName='TBAcmSubMemo']").watermark("請點選右邊「...」按鈕來帶入核銷事由！");
+        }
+
+        //1021021[add]:零用金與電子支付，不允許同時勾選
+	    $("#CBAllowanceFlag").click(function () {
+	        if ($("#CBAllowanceFlag").attr("checked") == "checked" && $("#CBEPayment").attr("checked") == "checked") {
+	            $("#CBAllowanceFlag").attr("checked", false);
+	            alert("零用金與電子支付，不允許同時勾選。");
+	        }
+	    });
+
+	    $("#CBEPayment").click(function () {
+	        if ($("#CBAllowanceFlag").attr("checked") == "checked" && $("#CBEPayment").attr("checked") == "checked") {
+	            $("#CBEPayment").attr("checked", false);
+	            alert("零用金與電子支付，不允許同時勾選。");
+	        }
+	    });
+    });
+
+
+		function fnCallSearchDialog()
+		{
+
+			var strReturnVal=showModalDialog("FrmSearch.aspx?stageflag=1&mod="+ "<%=strModFlag %>",window,"dialogWidth:640px;dialogHeight:480px; dialogTop: px; dialogLeft: px; edge: Raised; center: Yes; help: No; resizable: Yes; status: Yes;");
+
+			if (strReturnVal != "Cancel")
+				{
+					//alert( document.all("TBFindSql").value);
+					document.all("TBFindSql").value=strReturnVal;
+					//alert( document.all("TBFindSql").value);
+					//Form1.TBFindSql.value=strReturnVal;
+				}
+
+			//Form1.TBFindSql.value=strReturnVal;
+
+		}
+
+
+    ////2013.11.11：Edit：抽出搬到 FrmCaseOther.js 內，因為要和 UI.ToMasterDb.Web 共用此頁
+    //function fnCallPayDtlDialog(parParams) {
+    //    parParams += "&datastage=P&SessID=" + document.getElementById("TBPayDtlData").value;
+    //    var strReturnVal = showModalDialog("../AppCtrlCustom/FrmPayMethod.aspx?" + parParams, window, "dialogWidth:640px;dialogHeight:480px; dialogTop: px; dialogLeft: px; edge: Raised; center: Yes; help: No; resizable: Yes; status: Yes;");
+    //    if (strReturnVal != "Cancel") {
+    //        document.all("TBPayDtlData").value = strReturnVal;
+    //        //document.all("TextBox1").value=  strReturnVal;
+    //    }
+    //}
+
+		
+
+		function  fnCallPrntWeb()
+		{
+			var strParams;
+
+
+		  // alert("&acmwordnum=" + document.all("TBAcmWordNum").value );
+		  if (document.all("DDLReport").value == "Gen01" || document.all("DDLReport").value == "Gen03")
+		  {
+			strParams = "&acmyear=" + <%=Session("default_Year") %> + "&acmNo=" + document.all("ctl05_TBAcmWordNum").title + "&acmwordnum=" + document.all("ctl05_TBAcmWordNum").value + "&acmNo1=0" + "&acpPayYear=" +  <%=Session("default_Year") %>  + "&acpPayNo=1" + "&acmkidnum=<%=strDefKidNum  %>";
+
+			 window.open("../UI.ActReports.Web/FrmRptGen01.aspx?rptflag=" +  document.all("DDLReport").value + strParams , '','resizable=yes, scrollbars=yes, menubar=yes, toolbar=no, status=no, location=no') ;
+
+		  }
+		}
+
+		function checkVisaKind(parVal)
+		{
+
+//			if (parseFloat(replaceString(parVal,",","")) >0 && parseFloat(replaceString(parVal,",","")) <=10000 )
+//			{
+
+//				document.all("CBAllowanceFlag").checked=true;
+//			}
+//			else
+//			{
+//				document.all("CBAllowanceFlag").checked=false;
+//			}
+		}
+	function ShowAddVisaData(parSObj, parTObj)
+		{
+		    if(document.all("CBAddVisa").checked==true)
+		    {
+		        document.all("TDAddVisaData1").style.display="block";
+		        document.all("TDAddVisaData2").style.display="block";
+		    }
+		    else 
+		    {
+		    document.all("TDAddVisaData1").style.display="none";
+		    document.all("TDAddVisaData2").style.display="none";
+		    }
+		}
+		
+		
+    ////2013.11.11：Edit：抽出搬到 FrmCaseOther.js 內，因為要和 UI.ToMasterDb.Web 共用此頁
+	//function fnCallReportMenu(parParams) {
+    //
+	//    var strParams;
+	//    strParams = parParams;
+	//    //strParams = "&acmyear=" + <%=Session("default_Year") %> + "&acmNo=" + document.all("TBAcmWordNum").title + "&acmwordnum=" + document.all("TBAcmWordNum").value + "&acmNo1=0" + "&acpPayYear=" +  <%=Session("default_Year") %>  + "&acmkidnum=<%=strDefKidNum  %>" + "&page1qty=7&page2qty=43" ;
+	//    window.open("../UI.ActReports.Web/FrmRptMenu.aspx?visastage=P" + strParams, '', 'resizable=yes, scrollbars=yes, menubar=yes, toolbar=no, status=no, location=no');
+    //
+	//}
+
+
+    function showfiled(parSObj, parTObj) {
+        try {
+            if (document.all("CBAutoTempPay").checked == true) {
+                document.all("TRTmpPayData").style.display = "block";
+                document.all("TRTmpPayData1").style.display = "block";
+            }
+            else {
+                document.all("TRTmpPayData").style.display = "none";
+                document.all("TRTmpPayData1").style.display = "none";
+            }
+        } catch (e) {
+
+        }
+    }
+		
+function DisableAfterSubmit(){
+	var obj = event.srcElement;
+	var objs = document.getElementsByTagName('INPUT');
+	for(var i=0; i<objs.length; i++){
+		if(objs[i].type.toLowerCase() == 'submit'){
+			objs[i].disabled = true;
+		}
+	}
+}
+		
+</script>
+
+<style>
+/* 可摺疊標題 */
+.sFoldTitle { background-color: #6699FF; CURSOR: hand; }
+.sFoldTitleFont { font-size:10pt; color:#FFFFFF; padding-top:4px; padding-left:4px; }
+/* DataGrid寬高 */
+.DIV0_width { width: 590px; height: auto; overflow: hidden; border-style: groove; border-width: 1px; position:relative; }
+.DIV1_width { width: 590px; height: 166px; overflow: auto; border-style: groove; border-width: 1px; position:relative; }
+.DIV1_noWidth { width: auto; height: auto; overflow-x: auto; border-style: groove; border-width: 1px; position:relative; }
+.DIV2_width { width: 590px; height: 95px; overflow: auto; border-style: groove; border-width: 1px; position:relative; }
+.DIV2_noWidth { width: auto; height: auto; overflow-x: scroll; border-style: groove; border-width: 1px; position:relative; }
+.DIV3_width { width: 590px; height: 87px; overflow: auto; border-style: groove; border-width: 1px; position:relative; }
+.DIV3_noWidth { width: auto; height: auto; overflow-x: scroll; border-style: groove; border-width: 1px; position:relative; }
+
+.DIV1_FreezingCol{
+	LEFT: expression(document.getElementById("div_grid_acpDtlExtra").scrollLeft+1);
+	/*freezingDiv is the name of the div to make your datagrid scrollable */
+	POSITION: relative;
+	z-index: 9;
+
+	border-top: 0px solid #FFFFFF;
+	border-bottom: 0px solid;
+	border-left: 0px solid #003366;
+	border-right: 0px solid #FFFFFF;
+}
+.DIV1_FreezingCol2{
+	LEFT: expression(document.getElementById("div_grid_acpDtlExtra").scrollLeft+1);
+	/*freezingDiv is the name of the div to make your datagrid scrollable */
+	POSITION: relative;
+	z-index: 9;
+
+	border-top: 0px solid #FFFFFF;
+	border-bottom: 0px solid;
+	border-left: 0px solid #003366;
+	border-right: 1px solid #FFFFFF;
+}
+</style>
+
+<script language="javascript">
+<!--
+
+function show_item(item, sender){
+	var item_style = document.all[item].style;
+
+	if(typeof sender != "undefined"){
+		if(document.getElementById(sender).src.slice(-8) == 'plus.gif'){
+			item_style.display = "block";
+		}
+		else{
+			item_style.display = "none";
+		}
+	}
+	else{
+
+		if(item_style.display == 'none'){
+			item_style.display = "block";
+		}
+		else{
+			item_style.display = "none";
+		}
+	}
+}
+
+function sync_title_img(sender){
+	if(sender.style.display=='block'){
+		document.getElementById("img_" + sender.id).src = "images/minus.gif";
+	}
+	else {
+		document.getElementById("img_" + sender.id).src = "images/plus.gif";
+	}
+}
+
+
+function scale_item(sender){
+	var pORm;
+	if(document.getElementById(sender).src.slice(-8) == 'plus.gif')
+		pORm = "+";
+	else
+		pORm = "-";
+
+//	scale_item_by(pORm, "table");
+//	scale_item_by(pORm, "td");
+	scale_item_by(pORm, "div");
+//	scale_item_by(pORm, "hr");
+
+	if(pORm == "+")
+		document.getElementById(sender).src = "images/minus.gif";
+	else
+		document.getElementById(sender).src = "images/plus.gif";
+}
+
+function scale_item_by(pORm, tagName){
+	var obj = document.getElementsByTagName(tagName);
+	for(var i = 0; i < obj.length; i++)
+		try{
+			if(obj[i].alt != undefined)
+//alert(obj[i].alt);
+				if(pORm == "+"){
+					obj[i].className = obj[i].alt + "_noWidth";
+				}
+				else{
+					obj[i].className = obj[i].alt + "_width";
+				}
+		} catch(e){;}
+}
+
+function GetIEVer(){
+	var x;
+	for(i=0; i<10; i++){
+		for(z=0; z<10; z++){
+			if(navigator.appVersion.match("MSIE " + i + "." + z) != null)
+				x = i + "." + z;
+		}
+	}
+	return x;
+}
+
+function SetCookie(sName, sValue){
+	keepDay = 7;
+	setDay = new Date();
+	setDay.setTime(setDay.getTime()+(keepDay*1000*60*60*24));
+	expDay = setDay.toGMTString();
+
+	document.cookie = sName + "=" + escape(sValue) + "; expires=" + expDay;
+}
+
+function GetCookie(sName){
+	var aCookie = document.cookie.split("; ");
+	for(var i = 0; i < aCookie.length; i++){
+		var aCrumb = aCookie[i].split("=");
+		if(sName == aCrumb[0])
+		return unescape(aCrumb[1]);
+	}
+	return null;
+}
+
+function GetPageName(){
+	var strHref = window.location.href;
+	var pageName = strHref.slice(strHref.lastIndexOf("/") + 1);
+		pageName = (pageName + "?").split("?")[0];
+	return pageName;
+//	return (window.location.href).slice((window.location.href).lastIndexOf("/") + 1);
+}
+
+function jRight(text, numb){
+	var str = text;
+		str = str.substring(str.length-numb, str.length);
+	return str;
+}
+
+function set_cookies(){
+    try { SetCookie(GetPageName() + ":FoldTitle_11", FoldTitle_11.style.display); } catch (e) {;}//折疊項目
+	try { SetCookie(GetPageName() + ":FoldTitle_20", FoldTitle_20.style.display); } catch (e) {;}	//折疊項目
+	try { SetCookie(GetPageName() + ":FoldTitle_14", FoldTitle_14.style.display); } catch (e) {;}	//折疊項目
+	try { SetCookie(GetPageName() + ":FoldTitle_16", FoldTitle_16.style.display); } catch (e) { ; } //折疊項目
+    try { SetCookie(GetPageName() + ":FoldTitle_50", FoldTitle_50.style.display); } catch (e) {; } //折疊項目
+    try { SetCookie(GetPageName() + ":FoldTitle_1C", FoldTitle_1C.style.display); } catch (e) {; } //折疊項目
+    try { SetCookie(GetPageName() + ":FoldTitle_1D", FoldTitle_1D.style.display); } catch (e) {; } //折疊項目
+    try { SetCookie(GetPageName() + ":FoldTitle_1E", FoldTitle_1E.style.display); } catch (e) {; } //折疊項目
+
+
+	try { SetCookie(GetPageName() + ":div_UCProdApply", div_UCProdApply.className); } catch (e) {;}	//縮放表格
+	try { SetCookie(GetPageName() + ":div_UCActPayVisa", div_UCActPayVisa.className); } catch (e) {;}	//縮放表格
+    try { SetCookie(GetPageName() + ":div_UCPayName", div_UCPayName.className); } catch (e) {; } //縮放表格
+    try { SetCookie(GetPageName() + ":div_UCactTaxiDetail", div_UCactTaxiDetail.className); } catch (e) {; } //縮放表格
+}
+
+function get_cookies(){
+	try { SetFold(GetCookie(GetPageName() + ":FoldTitle_11"), "FoldTitle_11", "img_FoldTitle_11"); } catch (e) { ; }	//折疊項目
+	try { SetFold(GetCookie(GetPageName() + ":FoldTitle_20"), "FoldTitle_20", "img_FoldTitle_20"); } catch (e) { ; }	//折疊項目
+	try { SetFold(GetCookie(GetPageName() + ":FoldTitle_14"), "FoldTitle_14", "img_FoldTitle_14"); } catch (e) { ; }	//折疊項目
+	try { SetFold(GetCookie(GetPageName() + ":FoldTitle_16"), "FoldTitle_16", "img_FoldTitle_16"); } catch (e) { ; } //折疊項目
+    try { SetFold(GetCookie(GetPageName() + ":FoldTitle_50"), "FoldTitle_50", "img_FoldTitle_50"); } catch (e) {; } //折疊項目
+    try { SetFold(GetCookie(GetPageName() + ":FoldTitle_1C"), "FoldTitle_1C", "img_FoldTitle_1C"); } catch (e) {; } //折疊項目
+    try { SetFold(GetCookie(GetPageName() + ":FoldTitle_1D"), "FoldTitle_1D", "img_FoldTitle_1D"); } catch (e) {; } //折疊項目
+    try { SetFold(GetCookie(GetPageName() + ":FoldTitle_1E"), "FoldTitle_1E", "img_FoldTitle_1E"); } catch (e) {; } //折疊項目
+
+	try { SetDiv(GetCookie(GetPageName() + ":div_UCProdApply"), "div_UCProdApply", "img20"); } catch (e) { ; }	//縮放表格
+	try { SetDiv(GetCookie(GetPageName() + ":div_UCActPayVisa"), "div_UCActPayVisa", "img14"); } catch (e) { ; }	//縮放表格
+    try { SetDiv(GetCookie(GetPageName() + ":div_UCPayName"), "div_UCPayName", "img16"); } catch (e) {; } //縮放表格
+    try { SetDiv(GetCookie(GetPageName() + ":div_UCactTaxiDetail"), "div_UCactTaxiDetail", "img1D"); } catch (e) {; } //縮放表格
+}
+
+function SetFold(sValue, item, sender){
+	if(sValue == "block"){
+		document.getElementById(item).style.display = "block";
+		document.getElementById(sender).src = "images/minus.gif";
+	}
+	else{
+		document.getElementById(item).style.display = "none";
+		document.getElementById(sender).src = "images/plus.gif";
+	}
+}
+
+function SetDiv(sValue, item, sender){
+	document.getElementById(item).className = sValue;
+	if(jRight(sValue,7) == "noWidth"){
+		document.getElementById(sender).src = "images/minus.gif";
+	}
+	else{
+		document.getElementById(sender).src = "images/plus.gif";
+	}
+}
+
+//-->
+</script>
+
+</head>
+<body topmargin="5" leftmargin="10" rightmargin="0" bottommargin="50" onload='get_cookies();showfiled();ShowAddVisaData();' onunload='set_cookies()'>
+	<form id="form1" runat="server">
+	        <table  id="TablePass" runat="server" style="MARGIN-TOP: 0px; MARGIN-LEFT: 0px; BORDER-COLLAPSE: collapse;" cellpadding="5" width="600" bgcolor="#dadee9">
+	        <tr>
+		        <td style="BORDER-RIGHT: #666668 1pt solid; BORDER-TOP: #666668 1pt solid; BORDER-LEFT: #666668 1pt solid; BORDER-BOTTOM: #666668 1pt solid" bordercolor="#666668" valign="top" align="left">
+			        <table style="BORDER-COLLAPSE: collapse" bordercolor="#ffffff" cellpadding="1" width="100%" border="1">
+				        <tr>
+					        <td style="BORDER-RIGHT: #666668 1pt solid; BORDER-TOP: #666668 1pt solid; BORDER-LEFT: #666668 1pt solid; BORDER-BOTTOM: #666668 1pt solid" bordercolor="#666668">
+			                     <table  border="0" cellpadding="1" cellspacing="1" width="100%" style="table-layout:fixed">
+                                    <tr >
+                                        <td style="color: #FF0000; width: 75px;" align="right"><asp:Label ID="LBPassDate" runat="server" Text="核支日期"></asp:Label></td>
+                                        <td style="width: 110px;" ><asp:TextBox id="TBAcmPassDate" runat="server" MyName="TBAcmPassDate" style="text-align: center; background-color: #FFE0C0" Width="90px" ondblclick="JavaScript: UCPassDate.Show();"></asp:TextBox></td>
+                                        <td style="color: #FF0000;width: 85px;" align="right" ></td> 
+                                        <td style="width: 110px;"></td>
+                                        <td ></td>
+                                        <td ></td>
+                                    </tr>                                  
+                                 </table> 
+					        </td>
+				        </tr>
+			        </table>
+		        </td>
+	        </tr>
+	        <tr bgcolor="#FFFFFF"><td style="height:10px"></td></tr>
+        </table> 
+	<table border="0" cellpadding="0" style="border-collapse: collapse">
+		<tr>
+			<td valign="top">
+			<!-- 左框架START -->
+			<table cellpadding="0" style="border-collapse: collapse" border="0">
+				<tr>
+					<td valign="top">
+					<table cellpadding="0" style="border-collapse: collapse" border="1" bordercolor="#666668" bgcolor="#DADEE9">
+						<tr>
+							<td style="padding-top: 1px" onpropertychange="try{childNodes.width = this.clientWidth;}catch(e){;};">
+							<!-- ↓審核原因 -->
+
+							<!-- 審核原因↑ -->
+								 <div id="divdatamsg" runat="server" style="position: absolute; width: auto; height:auto; z-index: 3"  >
+	    <table border="0" cellpadding="0"cellspacing="0"  style="background-color: Aqua">
+	        <tr>
+	            <td><asp:Label ID="LBDataMsg" runat="server" Text="" ForeColor="Red" Font-Size="Small" ></asp:Label></td>
+	        </tr>
+	    </table>
+	</div>
+
+							
+							<!-- ↓審核 -->
+							<table cellpadding="0" style="border-collapse: collapse; margin-top: -1; width: 600px" border="1" bordercolor="#FFFFFF">
+								<tr>
+									<td style="padding: 5px"><input runat="server" id="TBOtherUnitFlag" type="hidden" />
+									<table cellpadding="0" style="border-collapse: collapse; width: 590px" border="0">
+										<tr>
+											<td align="right">
+											<table cellpadding="0" cellspacing="0" border="0">
+												<tr>
+													<td align="right" style="padding-left: 5px; display:block" nowrap><asp:CheckBox id="CBAcmUnitPassFlag" runat="server" Font-Size="Small" TextAlign="Left" Visible="True" Text="單位審核" /></td>
+													<td align="right" style="padding-left: 5px; display:none" nowrap><asp:CheckBox id="CBSecrearyFlag" runat="server" Font-Size="Small" TextAlign="Left" Text="秘書室審核" /></td>
+													<td align="right" style="padding-left: 5px" nowrap><asp:CheckBox id="CBAccPassFlag" runat="server" Font-Size="Small" TextAlign="Left" Text="主計審核" class="MainPassName" /></td>
+												</tr>
+											</table>
+											</td>
+										</tr>
+									</table>
+
+									</td>
+								</tr>
+							</table>
+							
+								<!-- 審核↑ -->
+							<table cellpadding="0" style="border-collapse: collapse; margin-top: -1; width: 602px" border="1" bordercolor="#FFFFFF">
+                                <tr>
+	                                <td style="padding: 0px">
+                                               <table>
+                                                    <tr>
+                                                        <td colspan="5">
+                                                            <asp:Label ID="labMsg" runat="server" Visible="false" Text="本單元皆由合併作業匯款，如果要由零用金支付，請自行打勾「零用金」，謝謝。" style="font-size:small;color:Maroon"></asp:Label></td>
+                                                    </tr>
+                                               </table>
+											   <table cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed; width:600px">
+                                                    <tr>
+                                                        <td style="text-align:left">
+                                                            <table cellpadding="0" cellspacing="0" border="0">                                                                
+                                                                <tr>
+                                                                    <td style="padding-right: 5px" nowrap><asp:CheckBox id="CBAllowanceFlag" runat="server" Font-Size="Small" TextAlign="Right" Text="零用金" Visible="True" /></td>
+                                                                    <td style="padding-right: 5px" nowrap class="NotVisible"><asp:CheckBox id="CBSeparateFlag" runat="server" Font-Size="Small" TextAlign="Right" Text="分期付款" Visible="True" /></td>
+                                                                    <td style="padding-right: 5px" nowrap><asp:CheckBox id="CBEPayment" runat="server" Font-Size="Small" TextAlign="Right" Text="電子支付" Visible="True" /></td>
+                                                                    <td style="padding-right: 5px" nowrap><asp:CheckBox id="CBDocFlag" runat="server" Font-Size="Small" TextAlign="Right" Text="免列印請購單" Visible="True" /></td>
+                                                                    <td style="padding-right: 5px" nowrap class="NotVisible"><asp:CheckBox id="CBacpDirectPay" runat="server" Font-Size="Small" TextAlign="Right" Text="直接核銷" Visible="True" /></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                        <td style="text-align:right">
+                                                            <table cellpadding="0" cellspacing="0" border="0">
+                                                                <tr>
+                                                                    <td style="padding-right: 5px" nowrap>&nbsp;</td>
+	                                                                <td style="padding-right: 5px" nowrap>&nbsp;</td>
+	                                                                <td style="padding-right: 5px; display:none" nowrap><asp:CheckBox ID="CBAutoTempPay" runat="server" Font-Size="Small" TextAlign="Right" Text="逕行暫付" Visible="True" onclick="showfiled(this);chkTmpPayAndCash();" /><asp:CheckBox ID="CBAddVisa" runat="server" Font-Size="Small" TextAlign="Right" Text="加簽" Visible="True"  onclick="ShowAddVisaData(this);"  /></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+	                                </td>
+                                </tr>                             
+                            </table>
+						
+							    <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+								<span id="TRTmpPayData1"><asp:PlaceHolder ID="PlaceHolder9" runat="server"></asp:PlaceHolder></span>
+                                <asp:PlaceHolder ID="PlaceHolder10" runat="server"></asp:PlaceHolder>
+                                <asp:PlaceHolder ID="PlaceHolder11" runat="server"></asp:PlaceHolder>
+                                <asp:PlaceHolder ID="PlaceHolder12" runat="server"></asp:PlaceHolder>
+                                <asp:PlaceHolder ID="PlaceHolder13" runat="server"></asp:PlaceHolder>
+                                <asp:PlaceHolder ID="PlaceHolder14" runat="server"></asp:PlaceHolder>
+                            	<asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
+															<table cellpadding="0" style="border-collapse: collapse; margin-top: -1; width: 600px" border="1" bordercolor="#FFFFFF">
+								<tr>
+									<td style="padding: 0px">
+									<table cellpadding="2" cellspacing="0" style="TABLE-LAYOUT: fixed" border="0">
+										<tr>
+										<td>
+                                            <input id="BtnPayDtlData" runat="server" type="button" value="黏存單付款說明"   />
+                                            <input runat="server" id="TBPayDtlData" type="hidden" />
+                                            <asp:Label ID="Label1" runat="server" Text="←本功能請編輯存檔主資料後，才能繼續編輯黏存單付款說明。" 
+                                                Font-Bold="True" Font-Size="Small" ForeColor="Red"></asp:Label>
+                                            </td>
+										</tr>
+									</table>
+									</td>
+								</tr>
+							</table>
+
+							</td>
+						</tr>
+					</table>
+					</td>
+				</tr>
+			</table>
+			<!-- ↓歷史資料 -->
+			<table cellpadding="0" style="border-collapse: collapse; margin-top: 5" border="1" bordercolor="#666668" bgcolor="#DADEE9">
+				<tr>
+					<td>
+					<table cellpadding="5" style="border-collapse: collapse" border="1" bordercolor="#FFFFFF">
+						<tr>
+							<td>
+							<table cellpadding="0" cellspacing="0" border="0">
+								<tr>
+									<td><asp:button id="BtnAdd" runat="server" Text="新增" Width="50px" Height="22px"></asp:button></td>
+									<td><asp:Button id="BtnEdit" runat="server" Text="修改" Width="50px" Height="22px"></asp:Button></td>
+									<td><asp:Button id="BtnDelete" runat="server" Text="刪除" Width="50px" Height="22px"></asp:Button></td>
+									<td><asp:Button id="BtnSave" runat="server" Text="儲存" Width="50px" Height="22px"></asp:Button></td>
+									<td><asp:Button id="BtnCancel" runat="server" Text="取消" Width="50px" Height="22px"></asp:Button></td>
+									<td><asp:Button id="BtnSearch" runat="server" Text="查詢" Width="50px" Height="22px"></asp:Button></td>
+									<td><input type="button" id="BtnPrint1" runat="server" 
+                                            style="width: 50px; height: 22px" value="列印" visible="True"  /></td>
+									<td style="display:none"><asp:DropDownList ID="DDLReport" runat="server" 
+                                            Visible="False">
+											<asp:ListItem Value="Gen01">支出憑證黏存單</asp:ListItem>
+											<asp:ListItem Value="Gen03">支出科目分攤表</asp:ListItem>
+										</asp:DropDownList></td>
+									<td><asp:textbox id="TBSearchSql" runat="server" style="TEXT-ALIGN: center; width: 90px" onkeypress="if(event.keyCode==13) {this.blur();return false;} else return check_Num()" onblur="if(this.value==''){this.value='尋找動支編號';}" onfocus="this.select()" onclick="this.value=''" AutoPostBack="True">尋找動支編號</asp:textbox><input type="button" style="HEIGHT: 22px; WIDTH: 16px; font-family: Webdings; font-size:8pt" value="s"></td>
+									<td><input type="hidden" id="TBFindSql" runat="server" name="TBFindSql" /></td>
+									<td><input type="hidden" id="TBOrderTxt" runat="server" name="TBOrderTxt" /><input type="hidden" id="TBModFlag" runat="server" name="TBModFlag" /></td>
+								</tr>
+							</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							<div id="_freezingDiv" class="DIV0_width">
+							<asp:datagrid id="DataGrid1" runat="server" Width="100%" AutoGenerateColumns="False" AllowSorting="True" AllowPaging="True" PageSize="5">
+								<HeaderStyle Font-Size="Small" Font-Bold="True" Wrap="False" HorizontalAlign="Center" ForeColor="White" BackColor="#003366"></HeaderStyle>
+								<ItemStyle Font-Size="Small" BackColor="WhiteSmoke"></ItemStyle>
+								<AlternatingItemStyle BackColor="#E0E0E0"></AlternatingItemStyle>
+								<SelectedItemStyle Font-Bold="True" BackColor="DarkOrange"></SelectedItemStyle>
+								<Columns>
+									<asp:ButtonColumn Text="□" HeaderText="選取" CommandName="Select" >
+										<HeaderStyle Width="30px" />
+										<ItemStyle HorizontalAlign="Center" VerticalAlign="Middle"></ItemStyle>
+									</asp:ButtonColumn>
+									<asp:BoundColumn DataField="acmYear" HeaderText="年度">
+										<HeaderStyle Width="30px"></HeaderStyle>
+										<ItemStyle HorizontalAlign="Center"></ItemStyle>
+									</asp:BoundColumn>
+									<asp:BoundColumn Visible="False" DataField="acmNo" HeaderText="簽證系統號" SortExpression="acmNo">
+										<HeaderStyle Width="30px"></HeaderStyle>
+										<ItemStyle HorizontalAlign="Left"></ItemStyle>
+									</asp:BoundColumn>
+									<asp:BoundColumn DataField="acmMarkDate" HeaderText="請示日期" SortExpression="acmMarkDate">
+										<HeaderStyle Width="60px"></HeaderStyle>
+									</asp:BoundColumn>
+									<asp:TemplateColumn HeaderText="動支編號" SortExpression="acmWordNum">
+										<ItemTemplate>
+											<asp:Label runat="server" Text='<%# AntiXss.HtmlEncode(DataBinder.Eval(Container, "DataItem.acmWordNum").ToString()) %>'  ToolTip='<%# AntiXss.HtmlEncode(DataBinder.Eval(Container, "DataItem.acmNo").ToString()) %>'></asp:Label>
+										</ItemTemplate>
+									</asp:TemplateColumn>
+									<asp:BoundColumn DataField="DepName" HeaderText="執行單位" SortExpression="DepName">
+										<HeaderStyle Width="80px"></HeaderStyle>
+									</asp:BoundColumn>
+									<asp:BoundColumn DataField="acmWorkUserNo" HeaderText="承辦人員" SortExpression="acmWorkUserNo">
+										<HeaderStyle Width="60px"></HeaderStyle>
+									</asp:BoundColumn>
+									<asp:BoundColumn DataField="acmMoney" HeaderText="動支金額" DataFormatString="{0:#,#}" SortExpression="acmMoney" >
+										<HeaderStyle Width="70px"></HeaderStyle>
+										<ItemStyle HorizontalAlign="Right"></ItemStyle>
+									</asp:BoundColumn>
+									<asp:BoundColumn DataField="acmMemo" HeaderText="控帳事由" SortExpression="acmMemo"></asp:BoundColumn>
+									<asp:BoundColumn DataField="acmModifyUser" HeaderText="最後異動" SortExpression="acmModifyUser">
+										<HeaderStyle Width="60px"></HeaderStyle>
+									</asp:BoundColumn>
+									<asp:BoundColumn Visible="False" DataField="P1Counter" HeaderText="P1Counter-10">
+										<HeaderStyle Width="60px"></HeaderStyle>
+									</asp:BoundColumn>
+								</Columns>
+								<PagerStyle HorizontalAlign="Center" ForeColor="DarkOrange" BackColor="#666668" Mode="NumericPages"></PagerStyle>
+							</asp:datagrid>
+							</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							<table border="0" cellpadding="0" style="border-collapse: collapse" width="100%">
+								<tr>
+									<td><font size="2">共 <asp:Label ID="LBRecordCnt" runat="server" style="text-align:center"></asp:Label> 筆資料</font></td>
+									<td align="right">
+									<table cellpadding="0" style="border-collapse: collapse" border="0">
+										<tr>
+											<td><font size="2">只列出｜</font></td>
+											<td>
+												<asp:DropDownList id="DDLSortMonth" runat="server" AutoPostBack="True">
+													<asp:ListItem Value="0">…</asp:ListItem>
+													<asp:ListItem Value="1">&nbsp;&nbsp;1月</asp:ListItem>
+													<asp:ListItem Value="2">&nbsp;&nbsp;2月</asp:ListItem>
+													<asp:ListItem Value="3">&nbsp;&nbsp;3月</asp:ListItem>
+													<asp:ListItem Value="4">&nbsp;&nbsp;4月</asp:ListItem>
+													<asp:ListItem Value="5">&nbsp;&nbsp;5月</asp:ListItem>
+													<asp:ListItem Value="6">&nbsp;&nbsp;6月</asp:ListItem>
+													<asp:ListItem Value="7">&nbsp;&nbsp;7月</asp:ListItem>
+													<asp:ListItem Value="8">&nbsp;&nbsp;8月</asp:ListItem>
+													<asp:ListItem Value="9">&nbsp;&nbsp;9月</asp:ListItem>
+													<asp:ListItem Value="10">10月</asp:ListItem>
+													<asp:ListItem Value="11">11月</asp:ListItem>
+													<asp:ListItem Value="12">12月</asp:ListItem>
+												</asp:DropDownList>
+											</td>
+											<td><asp:dropdownlist id="DDLSortDep" runat="server" AutoPostBack="True"></asp:dropdownlist></td>
+											<td><asp:DropDownList ID="DDLSortAccPassFlag" runat="server" AutoPostBack="True">
+													<asp:ListItem Value="0">未審核</asp:ListItem>
+													<asp:ListItem Value="1">已審核</asp:ListItem>
+													<asp:ListItem Value="">不區分</asp:ListItem>
+												</asp:dropdownlist></td>
+										</tr>
+									</table>
+									</td>
+								</tr>
+							</table>
+							</td>
+						</tr>
+					</table>
+					</td>
+				</tr>
+			</table>
+			<!--歷史資料↑ -->
+			<!-- 左框架END -->
+			</td>
+			<td width="5">　</td>
+			<td valign="top" width="200"><iframe id="iFrame" name="iFrame" border="0" frameborder="0" scrolling="no" width="200" height="520"></iframe></td>
+		</tr>
+	</table>
+
+	<script language="javascript"> if(document.all("BtnSave").disabled) setShowBudget();</script>
+	</form>
+</body>
+</html>
+<script src='../ScriptFiles/setFDNameFun.js'></script>
+<script src='../ScriptFiles/setFDNameDef.js'></script>

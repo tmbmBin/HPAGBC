@@ -1,0 +1,38 @@
+﻿<ListOfTaskModel>
+    <TaskModel>
+        <!--排序-->
+        <Order>1</Order>
+        <!--名稱-->
+        <Name>取得前 100 筆請示資料</Name>
+        <!--描述-->
+        <Description>actMain 和 actVisa</Description>
+        <!--按鈕文字-->
+        <SqlButtonText>執行</SqlButtonText>
+        <!--按鈕執行的 Sql 內容-->
+        <SqlContent>
+            <![CDATA[
+
+            SELECT TOP (100) * FROM actMain;
+            SELECT TOP (100) * FROM actVisa;
+            SELECT TOP (100) * 
+              FROM actMain M JOIN actVisa V 
+                ON M.acmYear=V.acmYear AND M.acmNo=ISNULL(V.acmNoPrv, V.acmNo);
+            
+            ]]>
+        </SqlContent>
+    </TaskModel>
+    <TaskModel>
+        <Order>2</Order>
+        <Name>名稱</Name>
+        <Description>
+            內容描述，不能使用 GO 關鍵字，改用 ;
+        </Description>
+        <SqlButtonText>按鈕</SqlButtonText>
+        <SqlContent>
+            <![CDATA[
+
+
+            ]]>
+        </SqlContent>
+    </TaskModel>
+</ListOfTaskModel>

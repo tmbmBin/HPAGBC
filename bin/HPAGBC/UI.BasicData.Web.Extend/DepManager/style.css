@@ -1,0 +1,64 @@
+﻿body {
+	font-size:10pt;
+}
+a{
+	color:#5D7B9D;
+	text-decoration:none;
+}
+a:hover{
+	color:#3A4D62;	
+}
+.ui-list-container{
+	width:500px;
+	
+}
+.ui-list-container span.title1{
+	width:200px;
+	text-align:center;
+	float:left;
+	background:#5D7B9D;
+	color:#FFF;
+	font-weight:bold;
+}
+.ui-list-container span.title2{
+	width:300px;
+	text-align:center;
+	float:left;
+	background:#5D7B9D;
+	color:#FFF;
+	font-weight:bold;
+}
+.ui-list-container div{
+	border-bottom:1px dotted gray;
+	height:28px;
+	line-height:28px;
+}
+.ui-list-container div span.content1{
+	width:200px;
+	float:left;
+}
+.ui-list-container div span.content2{
+	width:300px;
+	float:left;
+	text-align:center;
+}
+.ui-list-container div span.content2 a{
+	margin-right:4px;
+}
+.ui-list-container .clr{
+	clear:both;
+	display:none;
+}
+
+.ui-list-container div.zebra{
+	border-bottom:1px dotted gray;
+	height:28px;
+	line-height:28px;
+	background:#F7F6F3;
+	color:#333;
+	
+}
+/**/
+.opt label.current{
+	background:#F6943B;
+}

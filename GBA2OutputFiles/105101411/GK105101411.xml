@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="big5" standalone="no"?>
+<GK105101411>
+  <GK105101411_row>
+    <gk_fiscalyear>105</gk_fiscalyear>
+    <gk_accounttype>1</gk_accounttype>
+    <gk_importrecno>1</gk_importrecno>
+    <gk_seqno>001</gk_seqno>
+    <gk_customeruniversalno></gk_customeruniversalno>
+    <gk_customername>1</gk_customername>
+    <gk_bankaccount></gk_bankaccount>
+    <gk_bankaccountname></gk_bankaccountname>
+    <gk_bankno></gk_bankno>
+    <gk_bankname></gk_bankname>
+    <gk_checkamt>128721</gk_checkamt>
+    <gk_checkremark></gk_checkremark>
+    <gk_receipttype>0</gk_receipttype>
+    <gk_remarktext></gk_remarktext>
+    <gk_address></gk_address>
+    <gk_citem></gk_citem>
+    <gk_ctype></gk_ctype>
+    <gk_offdata></gk_offdata>
+    <gk_getdate></gk_getdate>
+    <gk_payableamt></gk_payableamt>
+    <gk_payamt></gk_payamt>
+    <gk_paydate></gk_paydate>
+    <gk_memo>105年</gk_memo>
+    <gk_explain>1</gk_explain>
+  </GK105101411_row>
+</GK105101411>

@@ -1,0 +1,82 @@
+﻿body {
+}
+/**/
+.filter{
+	margin:6px 0;
+	font-size:10pt;
+	color:#5D7B9D;
+	background:#EFEFEF;
+	padding:8px;
+	border:1px solid #666;
+}
+.filter fieldset{
+	border:1px solid #5D7B9D;
+	padding:6px;	
+}
+.filter fieldset input
+,.filter fieldset select{
+	color:#9E4F00;
+}
+.filter fieldset .actarea{
+	text-align:right;	
+}
+.filter fieldset .actarea input{
+	color:#FFF;
+	background-color:#5D7B9D;
+}
+/**/
+.gridstyle{
+	border:1px solid #5D7B9D;
+	width:100%;
+}
+.gridstyle th{
+	background:#5D7B9D;
+	color:#FFF;
+}
+.gridstyle td
+,.gridstyle th{
+	height:30px;
+	border:1px solid #C0C0C0;
+	font-size:10pt;
+}
+.gridstyle td{
+	padding:2px 2px;
+	line-height:16pt;
+	white-space:nowrap;
+}
+.gridstyle td.num{
+	font-family:Arial Black;	
+}
+.gridstyle tr{
+	background:#F7F6F3;
+	color:#333;	
+}
+.gridstyle tr.zebra{
+	background:#FFF;
+	color:#284775;
+}
+.gridstyle tr.current{
+	background:#FFDAAE;
+	color:#333;
+	font-weight:bold;
+}
+.gridstyle tr.checked{
+	background:#DDD;
+	color:#000;
+}
+.gridstyle td a{
+	color:#5D7B9D;
+	text-decoration:none;
+	font-weight:bold;
+}
+.gridstyle td a:hover{
+	color:#435871;
+}
+.gridstyle tr.empty td{
+	background:#DAE1E8;
+	color:#000;
+	text-align:center;
+}
+.gridstyle td.descript{
+	white-space:normal;
+}

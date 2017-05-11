@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="big5" standalone="no"?>
+<GF105100503>
+  <GF105100503_row>
+    <gf_fiscalyear>105</gf_fiscalyear>
+    <gf_accounttype>1</gf_accounttype>
+    <gf_importrecno>1</gf_importrecno>
+    <gf_accountno>410101</gf_accountno>
+    <gf_dcid>2</gf_dcid>
+    <gf_seqno>002</gf_seqno>
+    <gf_budgetyear>105</gf_budgetyear>
+    <gf_budgetsource>10</gf_budgetsource>
+    <gf_budgetno>71570301000</gf_budgetno>
+    <gf_ordinaryid>1</gf_ordinaryid>
+    <gf_subprojectno>07</gf_subprojectno>
+    <gf_objectno>047601</gf_objectno>
+    <gf_expanlno></gf_expanlno>
+    <gf_customeruniversalno></gf_customeruniversalno>
+    <gf_customername></gf_customername>
+    <gf_summarization>依油症患者健康照護服務條例提供油症患者定期健康檢查費用-童綜合醫院-蔡佳蓉、蔡舒媚、廖宜鎮、張維甲、蔡蕎蓮、楊雅婷</gf_summarization>
+    <gf_amount>12092.00</gf_amount>
+  </GF105100503_row>
+  <GF105100503_row>
+    <gf_fiscalyear>105</gf_fiscalyear>
+    <gf_accounttype>1</gf_accounttype>
+    <gf_importrecno>1</gf_importrecno>
+    <gf_accountno>510506</gf_accountno>
+    <gf_dcid>1</gf_dcid>
+    <gf_seqno>001</gf_seqno>
+    <gf_budgetyear>105</gf_budgetyear>
+    <gf_budgetsource>10</gf_budgetsource>
+    <gf_budgetno>71570301000</gf_budgetno>
+    <gf_ordinaryid>1</gf_ordinaryid>
+    <gf_subprojectno>07</gf_subprojectno>
+    <gf_objectno>047601</gf_objectno>
+    <gf_expanlno></gf_expanlno>
+    <gf_customeruniversalno></gf_customeruniversalno>
+    <gf_customername></gf_customername>
+    <gf_summarization>依油症患者健康照護服務條例提供油症患者定期健康檢查費用-童綜合醫院-蔡佳蓉、蔡舒媚、廖宜鎮、張維甲、蔡蕎蓮、楊雅婷</gf_summarization>
+    <gf_amount>12092.00</gf_amount>
+  </GF105100503_row>
+</GF105100503>

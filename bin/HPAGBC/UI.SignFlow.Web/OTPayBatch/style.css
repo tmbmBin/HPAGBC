@@ -1,0 +1,31 @@
+﻿body
+{
+}
+
+.btn
+{
+    color: #FFF;
+    background-color: #5D7B9D;
+}
+
+.hide
+{
+    display: none;
+}
+
+input[type='text'][data-type='num']
+{
+    text-align: center;
+}
+
+.notify
+{
+    color: red;
+    font-weight: bold; 
+}
+
+.notify-warn
+{
+    color: orange;
+    font-weight: bold; 
+}

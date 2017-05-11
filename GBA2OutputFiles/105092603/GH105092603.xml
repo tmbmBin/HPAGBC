@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="big5" standalone="no"?>
+<GH105092603>
+  <GH105092603_row>
+    <gh_fiscalyear>105</gh_fiscalyear>
+    <gh_accounttype>1</gh_accounttype>
+    <gh_importrecno>1</gh_importrecno>
+    <gh_accountno>110901</gh_accountno>
+    <gh_dcid>2</gh_dcid>
+    <gh_seqno>3</gh_seqno>
+    <gh_budgetyear>105</gh_budgetyear>
+    <gh_budgetsource>10</gh_budgetsource>
+    <gh_budgetno>71570300100</gh_budgetno>
+    <gh_ordinaryid>1</gh_ordinaryid>
+    <gh_subprojectno>02</gh_subprojectno>
+    <gh_objectno>0200</gh_objectno>
+    <gh_expanlno></gh_expanlno>
+    <gh_customeruniversalno></gh_customeruniversalno>
+    <gh_customername>財團法人第一社會福利基金會</gh_customername>
+    <gh_deducyear>105</gh_deducyear>
+    <gh_deducvoucherno>501010</gh_deducvoucherno>
+    <gh_deducseqno></gh_deducseqno>
+    <gh_deducamount>166256</gh_deducamount>
+  </GH105092603_row>
+</GH105092603>

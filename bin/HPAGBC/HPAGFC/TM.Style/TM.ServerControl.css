@@ -1,0 +1,4 @@
+﻿input.DecimalBox{text-align:right;}
+span.datepicker-wrap{display:inline-block;width:auto;}
+span.datepicker-wrap input.hasDatepicker{font-family:Verdana;width:80px;padding-left:2px;float:left;}
+span.datepicker-wrap img.datepicker-caller{height:20px;float:left;cursor:pointer;}

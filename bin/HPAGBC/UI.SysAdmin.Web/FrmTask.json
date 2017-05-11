@@ -1,0 +1,11 @@
+﻿{
+    /*是否匯入檔案後，馬上做資料庫備份*/
+    "IsBackupAfterImport": false,
+
+    /*每個資料庫的備份檔個數*/
+    "BackupCount": 1,
+
+    /*備份外部的資料庫，其資料庫名稱
+    （若為多個，中間以「,」區隔）*/
+    "ExternalDbNames": "MOHWFGBCE"
+}

@@ -1,0 +1,39 @@
+﻿body {
+}
+.QA{
+	font-size:10pt;
+	padding:8px;
+}
+.QA fieldset{
+	padding:8px;
+	border:1px solid #967758;
+}
+.QA fieldset legend{
+	color:#967758;
+}
+.QA div{
+	line-height:24px;
+}
+.QA .Q{
+	background-image:url(../images/box01_34.gif);
+	background-repeat:no-repeat;
+	background-position:left;
+	padding-left:15pt;
+	height:24px;
+	color:#AF7500;
+}
+.QA .A{
+	color:#444;	
+}
+/**/
+.attention{
+	font-size:10pt;
+	padding:8px;
+}
+.attention fieldset{
+	padding:8px;
+	border:1px solid #967758;
+}
+.attention fieldset legend{
+	color:#967758;
+}

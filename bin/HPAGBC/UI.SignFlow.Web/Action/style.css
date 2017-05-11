@@ -1,0 +1,96 @@
+﻿body {
+	font-size:10pt;
+	background:#ECEEF5;	
+}
+table{
+	border:1px solid #5D7B9D;
+	width:100%;
+}
+table th{
+	height:30px;
+	background:#5D7B9D;
+	color:#FFF;
+}
+table td
+,table th{
+	font-size:10pt;
+	border:1px solid #C0C0C0;
+}
+table td{
+	padding:0 2px;
+}
+table tr{
+	background:#F7F6F3;
+	color:#333;
+	height:30px;
+}
+table tr.zebra{
+	background:#FFF;
+	color:#284775;
+}
+table tr.checked{
+	background:#DDD;
+	color:#000;
+}
+
+/**/
+table tr.current td{
+	background:#FFDAAE;
+	color:#333;
+	font-weight:bold;
+}
+table tr td img{
+	display:none;
+}
+table tr.current td img{
+	display:block;
+	width:16px;
+	height:16px;
+	background:url(images/current_arrow.png);		
+}
+
+/* memo */
+.ui-memo-container{
+	margin:10px 0 0 0;
+}
+.ui-memo-container .header{
+	color:Red;
+	font-weight:bold;	
+}
+.ui-memo-container .content{
+	
+}
+.ui-memo-container .content input{
+	background:#EAFFCC;
+	color:#222;	
+}
+
+/**/
+.ui-action-button-container{
+	margin-top:8px;	
+}
+.ui-action-button-container input{
+	background:#5D7B9D;
+	color:#FFF;	
+	height:30px;
+	padding:0 16px;
+	font-weight:bold;
+}
+/**/
+.ui-action-button-container .Approve{
+	background:#C00000;
+}
+.ui-action-button-container .Back_to_applicant{
+}
+.ui-action-button-container .Back_to_Previous_Level{
+}
+.ui-action-button-container .DECIDE{
+	background:#C00000;	
+}
+.ui-action-button-container .Sending{
+	
+}
+.ui-action-button-container .back{
+	background:#60984B;
+	margin-left:20px;
+}
